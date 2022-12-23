@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('cuadros', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name',100)->unique();
+            $table->string('description');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('painter_id')->references('id')->on('painters')->onDelete('cascade');
+            $table->foreign('dimension_id')->references('id')->on('dimensions')->onDelete('cascade');
         });
     }
 
