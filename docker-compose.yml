@@ -1,0 +1,65 @@
+version: '3.3'
+name: cuadros
+services:
+  # db 
+  cuadros-mariadb:
+    container_name: cuadros_mysql
+    image: docker.io/bitnami/mariadb:10.6
+    environment:
+      # is recommended only for development.
+      # - ALLOW_EMPTY_PASSWORD
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=cuadros
+      - MARIADB_DATABASE=cuadros
+    volumes:
+      - './data:/bitnami/mariadb/data'
+    ports:
+      - '7701:3306'
+  # API 
+  cuadros-api:
+    container_name: cuadros_api
+    image: docker.io/bitnami/laravel:9
+    ports:
+      - '7702:8000'
+    environment:
+      - DB_HOST=cuadros-mariadb
+      - DB_PORT=3306
+      - DB_USERNAME=cuadros
+      - DB_DATABASE=cuadros
+    volumes:
+      - './api/v1:/app'
+    depends_on:
+      - cuadros-mariadb
+  # phpmyadmin
+  cuadros-phpmyadmin:
+    container_name: cuadros_phpmyadmin
+    restart: always
+    image: phpmyadmin
+    ports:
+      - 7703:80
+    environment:
+      PMA_HOSTS: cuadros-mariadb
+  # # Web APP 
+  # cuadros-frontend:
+  #   container_name: cuadros_frontend
+  #   build: .
+  #   volumes:
+  #     - './refine-frontend:/app'
+  #   ports:
+  #     - '7700:3000'
+  #   depends_on:
+  #     - cuadros-api
+  # // wordpress 
+  cuadros-wordpress:
+    image: wordpress:php8.2-fpm
+    container_name: cuadros_wordpress
+    environment:
+      - WORDPRESS_DB_HOST=cuadros-mariadb
+      - WORDPRESS_DB_USER=root
+      # - WORDPRESS_DB_PASSWORD=cuadros
+      - WORDPRESS_DB_NAME=cuadros
+      - WORDPRESS_TABLE_PREFIX=wp_
+    ports:
+      - '7704:80'
+    depends_on:
+      - cuadros-mariadb
