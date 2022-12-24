@@ -49,17 +49,3 @@ services:
   #     - '7700:3000'
   #   depends_on:
   #     - cuadros-api
-  # // wordpress 
-  cuadros-wordpress:
-    image: wordpress:php8.2-fpm
-    container_name: cuadros_wordpress
-    environment:
-      - WORDPRESS_DB_HOST=cuadros-mariadb
-      - WORDPRESS_DB_USER=root
-      # - WORDPRESS_DB_PASSWORD=cuadros
-      - WORDPRESS_DB_NAME=cuadros
-      - WORDPRESS_TABLE_PREFIX=wp_
-    ports:
-      - '7704:80'
-    depends_on:
-      - cuadros-mariadb
