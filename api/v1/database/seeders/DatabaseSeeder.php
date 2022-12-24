@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         // //seed pictures dimensions   
         $this->call(DimensionSeeder::class);
         // //seed pictures
-        // Picture::factory(100)->create();
+        Picture::factory(100)->create();
     }
 }
