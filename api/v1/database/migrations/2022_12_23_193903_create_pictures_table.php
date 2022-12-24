@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', 100)->unique();
+            $table->string('pic_name', 100)->unique();
             $table->string('description');
             $table->string('image');
             $table->bigInteger('category_id')->unsigned(); 
