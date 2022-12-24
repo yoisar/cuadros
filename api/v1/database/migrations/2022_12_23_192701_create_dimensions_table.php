@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('dimensions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->smallInteger('width');
-            $table->smallInteger('height');
+            $table->string('figure');
+            $table->string('scenery');
         });
     }
 
