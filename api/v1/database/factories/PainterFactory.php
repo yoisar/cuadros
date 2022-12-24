@@ -17,7 +17,8 @@ class PainterFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'painter_name' => $this->faker->name
+
         ];
     }
 }
