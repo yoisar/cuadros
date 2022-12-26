@@ -27,7 +27,8 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('painter_id')->references('id')->on('painters')->onDelete('cascade');
             $table->foreign('dimension_id')->references('id')->on('dimensions')->onDelete('cascade');
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            // $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+
         });
     }
 
