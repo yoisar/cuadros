@@ -53,7 +53,7 @@ class PicturePolicy
      */
     public function update(User $user, Picture $picture)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class PicturePolicy
      */
     public function delete(User $user, Picture $picture)
     {
-        //
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class PicturePolicy
      */
     public function restore(User $user, Picture $picture)
     {
-        //
+        return true;
     }
 
     /**
