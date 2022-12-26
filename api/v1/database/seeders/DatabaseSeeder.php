@@ -23,9 +23,11 @@ class DatabaseSeeder extends Seeder
         Painter::factory(100)->create();
         //seed pictures categories
         $this->call(CategorySeeder::class);
-        // //seed pictures dimensions   
+        // seed pictures dimensions   
         $this->call(DimensionSeeder::class);
-        // //seed pictures
+        //seed countries   
+        $this->call(CountrySeeder::class);
+        // seed pictures
         Picture::factory(100)->create();
     }
 }

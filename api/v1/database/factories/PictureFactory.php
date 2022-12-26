@@ -22,7 +22,8 @@ class PictureFactory extends Factory
             'image' => fake()->imageUrl(640, 480, 'pictures', true),
             'category_id' => rand(1, 4),
             'dimension_id' => rand(1, 4),
-            'painter_id' => rand(1, 100)
+            'painter_id' => rand(1, 100),
+            'country_id' => rand(1, 248),
 
         ];
     }
