@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Database\Seeders\CountrySeeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +17,13 @@ class PictureFactory extends Factory
      */
     public function definition()
     {
+        $countries = CountrySeeder::countryList();
         return [
-            'pic_name' => fake()->name(),
+            'name' => fake()->name(),
+            'painter' => fake()->name(),
             'description' => fake()->text(),
-            'image' => fake()->imageUrl(640, 480, 'pictures', true),
+            'image' => fake()->imageUrl(640, 480, 'pictures', true),            
+            'country_code' => $countries[rand(0, 247)]['code'],
             'category_id' => rand(1, 4),
             'dimension_id' => rand(1, 4),
             'painter_id' => rand(1, 100),
