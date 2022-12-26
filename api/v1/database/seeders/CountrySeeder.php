@@ -39,7 +39,7 @@ class CountrySeeder extends Seeder
             ['country_name' => 'Anguilla', 'code' => 'AI'],
             ['country_name' => 'Antarctica', 'code' => 'AQ'],
             ['country_name' => 'Antigua and Barbuda', 'code' => 'AG'],
-            ['country_name' => 'Argentina', 'code' => 'AR'],
+            ['country_name' => 'Argentina', 'code' => 'ARG'],
             ['country_name' => 'Armenia', 'code' => 'AM'],
             ['country_name' => 'Aruba', 'code' => 'AW'],
             ['country_name' => 'Australia', 'code' => 'AU'],
