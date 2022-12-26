@@ -10,7 +10,7 @@ class Picture extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'pic_name',
         'description', 'image', 'category_id', 'painter_id', 'dimension_id'
     ];
     /**
