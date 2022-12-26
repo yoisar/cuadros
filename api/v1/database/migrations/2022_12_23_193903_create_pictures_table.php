@@ -22,10 +22,12 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned(); 
             $table->bigInteger('painter_id')->unsigned(); 
             $table->bigInteger('dimension_id')->unsigned(); 
+            $table->bigInteger('country_id')->unsigned(); 
             //foreing keys 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('painter_id')->references('id')->on('painters')->onDelete('cascade');
             $table->foreign('dimension_id')->references('id')->on('dimensions')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 
