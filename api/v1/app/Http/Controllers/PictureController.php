@@ -27,13 +27,13 @@ class PictureController extends BaseController
                 $sort = $request->get('_sort') ?  $request->get('_sort') : 'id';
                 $offset = $request->get('_start') ? $request->get('_start') : 0;
                 // retireve ordered and limit Pictures list
-                $pictures = Picture::with(['category', 'painter', 'dimension'])->orderBy($sort, $order)
+                $pictures = Picture::with(['category', 'painter', 'dimension','country'])->orderBy($sort, $order)
                     ->offset($offset)
                     ->limit($limit)
                     ->get();
             } else {
                 // retireve all Pictures
-                $pictures = Picture::with(['category', 'painter', 'dimension'])->get();
+                $pictures = Picture::with(['category', 'painter', 'dimension','country'])->get();
             }
             return $this->sendResponse($pictures, 'Pictures List');
         } catch (\Exception $e) {
@@ -80,7 +80,7 @@ class PictureController extends BaseController
     public function show($id)
     {
         try {
-            $picture = Picture::with(['category', 'painter', 'dimension'])->find($id);
+            $picture = Picture::with(['category', 'painter', 'dimension','country'])->find($id);
             if (is_null($picture)) {
                 return $this->sendError('Picture not found');
             } else {

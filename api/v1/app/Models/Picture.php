@@ -40,4 +40,9 @@ class Picture extends Model
     {
         return $this->belongsTo(Dimension::class);
     }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }
