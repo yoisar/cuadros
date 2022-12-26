@@ -41,7 +41,7 @@ class ServiceResponsePolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class ServiceResponsePolicy
      */
     public function update(User $user, ServiceResponse $serviceResponse)
     {
-        //
+        return true;
     }
 
     /**
