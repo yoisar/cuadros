@@ -15,9 +15,20 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        Country::truncate();
-
-        $countries = [
+        // Country::truncate();      
+        $countries = self::countryList();
+        foreach ($countries as $key => $value) {
+            Country::create($value);
+        }
+    }
+    /**
+     * retrieve country list 
+     *
+     * @return array
+     */
+    public   static function countryList()
+    {
+        return    [
             ['country_name' => 'Afghanistan', 'code' => 'AF'],
             ['country_name' => 'Åland Islands', 'code' => 'AX'],
             ['country_name' => 'Albania', 'code' => 'AL'],
@@ -268,9 +279,5 @@ class CountrySeeder extends Seeder
             ['country_name' => 'Zambia', 'code' => 'ZM'],
             ['country_name' => 'Zimbabwe', 'code' => 'ZW'],
         ];
-
-        foreach ($countries as $key => $value) {
-            Country::create($value);
-        }
     }
 }
