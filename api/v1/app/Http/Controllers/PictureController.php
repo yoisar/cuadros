@@ -142,9 +142,10 @@ class PictureController extends BaseController
      * @param  \App\Models\Picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Picture $picture)
+    public function destroy($id)
     {
         try {
+            $picture = Picture::findOrFail($id);
             $picture->delete();
             return $this->sendResponse($picture, 'picture deleted successfully');
         } catch (\Exception $e) {
