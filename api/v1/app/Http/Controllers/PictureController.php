@@ -21,41 +21,43 @@ class PictureController extends BaseController
     public function index(Request $request)
     {
         try {
+            //limit query parameters
             $offset = 0;
             $limit = 10;
+            $filter = array();
+            //fields list by default
             $fields_list = array('name', 'painter', 'description', 'country_code');
-            // //for query log
-            // DB::connection()->enableQueryLog();
-            // //?filters['country']=ARG&fields=id,name,painter
-            // $filter = array();
-            // if ($request->get('filters')) {
-            //     //clean up filter
-            //     $filters = str_replace('\'', '', $request->get('filters'));
-            //     if ($filters['country']) {
-            //         $country = $filters['country'];
-            //         $filter = "country_code ='$country'";
-            //         // print_r($filter);
-            //     }
-            // }
-            // //fields list 
-            // if ($request->get('fields')) {
-            //     $fields_list = explode(',', $request->get('fields'));
-            // }
-            // $pictures = Picture::select($fields_list)->where('country_code', '=', 'AR')
-            //     // ->with(['category', 'painter', 'dimension', 'country'])
-            //     // ->orderBy($sort, $order)
-            //     ->offset($offset)
-            //     ->limit($limit)
-            //     ->get();
-            // // } else {
-            // // retireve all Pictures
-            // // $pictures = Picture::with(['category', 'painter', 'dimension', 'country'])->get();
-            // // }
+            //for query log
+            DB::connection()->enableQueryLog();
+            //filter example: filters['country']=ARG
+            if ($request->get('filters')) {
+                //clean up filter
+                $filters = str_replace('\'', '', $request->get('filters'));
+                //filter by country
+                if ($filters['country']) {
+                    $country = $filters['country'];
+                    $filter = $country;
+                }
+                //other filter ....
+            }
+            //Fields  example:  fields=id,name,painter
+            //Fields list 
+            if ($request->get('fields')) {
+                $fields_list = explode(',', $request->get('fields'));
+            }
+            //query picture 
+            $pictures = Picture::select($fields_list)->where('country_code', $filter)
+                ->offset($offset)
+                ->limit($limit)
+                ->get();
+            // ->with(['category', 'painter', 'dimension', 'country'])
+            // ->orderBy($sort, $order)
+
             //save response time
             StatisticsController::saveResponseTime('cuadros');
             $queries = DB::getQueryLog();
             // dd($queries);
-            // return $this->sendResponse($pictures, 'Pictures List');
+            return $this->sendResponse($pictures, 'Pictures List');
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), []);
         }
