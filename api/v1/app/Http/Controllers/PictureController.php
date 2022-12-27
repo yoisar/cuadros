@@ -25,33 +25,42 @@ class PictureController extends BaseController
             $offset = 0;
             $limit = 10;
             $filter = array();
-            //fields list by default
-            $fields_list = array('name', 'painter', 'description', 'country_code');
+            //Fields list 
+            //Fields  example:  fields=id,name,painter
+            if ($request->get('fields')) {
+                $fields_list = explode(',', $request->get('fields'));
+            } else {
+                //fields list by default
+                $fields_list = array('name', 'painter', 'description', 'country_code');
+            }
             //for query log
             DB::connection()->enableQueryLog();
-            //filter example: filters['country']=ARG
+            // //sort order
+            // if ($request->get('order')) {
+            // //filter example: filters['country']=ARG
             if ($request->get('filters')) {
                 //clean up filter
                 $filters = str_replace('\'', '', $request->get('filters'));
                 //filter by country
                 if ($filters['country']) {
                     $country = $filters['country'];
-                    $filter = $country;
+                    $filter = " country_code=\"$country\" ";
                 }
                 //other filter ....
+                //query picture 
+                $pictures = Picture::select($fields_list)
+                    ->whereRaw($filter)
+                    ->get()
+                    // ->offset($offset)
+                    // ->limit($limit);
+                ;
+            } else {
+                //simple query picture 
+                $pictures = Picture::select($fields_list)
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->get();
             }
-            //Fields  example:  fields=id,name,painter
-            //Fields list 
-            if ($request->get('fields')) {
-                $fields_list = explode(',', $request->get('fields'));
-            }
-            //query picture 
-            $pictures = Picture::select($fields_list)->where('country_code', $filter)
-                ->offset($offset)
-                ->limit($limit)
-                ->get();
-            // ->with(['category', 'painter', 'dimension', 'country'])
-            // ->orderBy($sort, $order)
 
             //save response time
             StatisticsController::saveResponseTime('cuadros');
@@ -136,10 +145,6 @@ class PictureController extends BaseController
         DB::beginTransaction();
         try {
             $input = $request->all();
-            // $validator = $this->validator($input);
-            // if ($validator->fails()) {
-            //     return $this->sendError('Validation Error.', $validator->errors());
-            // } else {
             $picture = Picture::find($id);
             $picture->name = $input['name'];
             $picture->painter = $input['painter'];
