@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PictureController;
+use App\Http\Controllers\StatisticsController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -48,3 +49,5 @@ Route::get('/user', function (Request $request) {
 
 // Cuadros API endpoints
 Route::apiResource('cuadros', PictureController::class)->middleware('auth:sanctum');
+// Endpoint for Average service response response
+Route::get('status', [StatisticsController::class, 'status']);
