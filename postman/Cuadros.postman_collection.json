@@ -1,0 +1,1036 @@
+{
+	"info": {
+		"_postman_id": "ec5867cc-75aa-423b-b7d2-e6dc422f29c0",
+		"name": "Cuadros",
+		"description": "Cuadros API RESTful",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12703949"
+	},
+	"item": [
+		{
+			"name": "Extras",
+			"item": [
+				{
+					"name": "Average service response response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/api/status",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"status"
+							]
+						},
+						"description": "Get Average service response response time"
+					},
+					"response": []
+				}
+			],
+			"description": "Extra services"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "yois",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sioy23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_base}}/api/register",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Register system user and retrieve token"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "yois",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sioy23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_base}}/api/login",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Login system user and retrieve token"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url_base}}/api/sanctum/token",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"sanctum",
+								"token"
+							]
+						},
+						"description": "Create access token"
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "yois",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sioy23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_base}}/api/user",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						},
+						"description": "Get current loged user"
+					},
+					"response": []
+				}
+			],
+			"description": "Login"
+		},
+		{
+			"name": "Pictures",
+			"item": [
+				{
+					"name": "Pictures list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/jsonheader ",
+								"type": "text"
+							},
+							{
+								"key": "X-HTTP-USER-ID",
+								"value": "yois",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url_base}}/api/cuadros?filters[country]=AW&fields=id,name,painter,country_code",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"cuadros"
+							],
+							"query": [
+								{
+									"key": "filters[country]",
+									"value": "AW"
+								},
+								{
+									"key": "fields",
+									"value": "id,name,painter,country_code"
+								}
+							]
+						},
+						"description": "Get Pictures list"
+					},
+					"response": [
+						{
+							"name": "Pictures list Country Code AW",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": " application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{url_base}}/api/cuadros?filters[country]=AW&fields=id,name,painter,country_code",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros"
+									],
+									"query": [
+										{
+											"key": "filters[country]",
+											"value": "AW"
+										},
+										{
+											"key": "fields",
+											"value": "id,name,painter,country_code"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:27:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:27:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "54"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Pictures List\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Kaden Lang\",\n            \"painter\": \"Raquel Stamm\",\n            \"country_code\": \"AW\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Picture",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/jsonheader ",
+								"type": "text"
+							},
+							{
+								"key": "X-HTTP-USER-ID",
+								"value": "yois",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/api/cuadros/100",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"cuadros",
+								"100"
+							]
+						},
+						"description": "Get a Picture by id"
+					},
+					"response": [
+						{
+							"name": "Get Picture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": " application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}/api/cuadros/102",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros",
+										"102"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:28:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:28:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Picture not found\",\n    \"code\": 404\n}"
+						},
+						{
+							"name": "Get Picture record 100",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": " application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}/api/cuadros/100",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros",
+										"100"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:28:30 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:28:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Picture retrieved successfully\",\n    \"data\": {\n        \"id\": 100,\n        \"created_at\": \"2022-12-26T13:10:17.000000Z\",\n        \"updated_at\": \"2022-12-26T13:10:17.000000Z\",\n        \"name\": \"Kasey Bosco\",\n        \"painter\": {\n            \"id\": 43,\n            \"created_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"updated_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"painter_name\": \"Earnest Bogisich\"\n        },\n        \"description\": \"Perferendis aut iure et sint. Consequatur rerum sunt et voluptatum. Dicta laboriosam qui quis culpa quia sit. Ex consequatur et commodi numquam eos.\",\n        \"image\": \"https://via.placeholder.com/640x480.png/00aa88?text=pictures+id\",\n        \"country_code\": \"NA\",\n        \"category_id\": 4,\n        \"painter_id\": 43,\n        \"dimension_id\": 4,\n        \"country_id\": 179,\n        \"category\": {\n            \"id\": 4,\n            \"created_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"updated_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"cat_name\": \"Arte Pop\"\n        },\n        \"dimension\": {\n            \"id\": 4,\n            \"created_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"updated_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"figure\": \"33 x 24\",\n            \"scenery\": \"33 x 22\"\n        },\n        \"country\": {\n            \"id\": 179,\n            \"created_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"updated_at\": \"2022-12-26T13:10:16.000000Z\",\n            \"country_name\": \"Puerto Rico\",\n            \"code\": \"PR\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Picture",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/jsonheader ",
+								"type": "text"
+							},
+							{
+								"key": "X-HTTP-USER-ID",
+								"value": "yois",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/api/cuadros/11",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"cuadros",
+								"11"
+							]
+						},
+						"description": "Delte a Picture by id"
+					},
+					"response": [
+						{
+							"name": "Delete Picture",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url_base}}/api/cuadros/11",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:29:57 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:29:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"picture deleted successfully\",\n    \"data\": {\n        \"id\": 11,\n        \"created_at\": \"2022-12-26T13:10:17.000000Z\",\n        \"updated_at\": \"2022-12-26T13:10:17.000000Z\",\n        \"name\": \"Carrie Leffler\",\n        \"painter\": \"Torrance Jacobs Jr.\",\n        \"description\": \"Ut alias ut sit provident. Reiciendis ut recusandae quo cum.\",\n        \"image\": \"https://via.placeholder.com/640x480.png/00aa00?text=pictures+modi\",\n        \"country_code\": \"ZA\",\n        \"category_id\": 3,\n        \"painter_id\": 63,\n        \"dimension_id\": 2,\n        \"country_id\": 101\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create picture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/jsonheader ",
+								"type": "text"
+							},
+							{
+								"key": "X-HTTP-USER-ID",
+								"value": "yois",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pintura 1",
+									"type": "text"
+								},
+								{
+									"key": "painter",
+									"value": "Camilo mi hijo",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "ARG",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Pintura de un paisaje muy bonito",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "http://www.servidorimagenes.com/pintura_camilo",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "painter_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "dimension_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_base}}/api/cuadros",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"cuadros"
+							]
+						},
+						"description": "Create a Picture record"
+					},
+					"response": [
+						{
+							"name": "Create picture record",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Pintura 1",
+											"type": "text"
+										},
+										{
+											"key": "painter",
+											"value": "Camilo mi hijo",
+											"type": "text"
+										},
+										{
+											"key": "country_code",
+											"value": "ARG",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Pintura de un paisaje muy bonito",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "http://www.servidorimagenes.com/pintura_camilo",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "painter_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "dimension_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_base}}/api/cuadros",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:31:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:31:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Picture updated successfully\",\n    \"data\": {\n        \"name\": \"Pintura 1\",\n        \"painter\": \"Camilo mi hijo\",\n        \"country_code\": \"ARG\",\n        \"description\": \"Pintura de un paisaje muy bonito\",\n        \"image\": \"http://www.servidorimagenes.com/pintura_camilo\",\n        \"category_id\": \"1\",\n        \"painter_id\": \"1\",\n        \"dimension_id\": \"1\",\n        \"country_id\": \"1\",\n        \"updated_at\": \"2022-12-27T11:31:26.000000Z\",\n        \"created_at\": \"2022-12-27T11:31:26.000000Z\",\n        \"id\": 101\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update pict",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/jsonheader ",
+								"type": "text"
+							},
+							{
+								"key": "X-HTTP-USER-ID",
+								"value": "yois",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pintura 2",
+									"type": "text"
+								},
+								{
+									"key": "painter",
+									"value": "Camilo mi",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "ARG",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Pintura de un paisaje muy bonito",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "http://www.servidorimagenes.com/pintura_camilo",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "painter_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "dimension_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url_base}}/api/cuadros/101",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"api",
+								"cuadros",
+								"101"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update picture record 101",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Pintura 2",
+											"type": "text"
+										},
+										{
+											"key": "painter",
+											"value": "Camilo mi",
+											"type": "text"
+										},
+										{
+											"key": "country_code",
+											"value": "ARG",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Pintura de un paisaje muy bonito",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"value": "http://www.servidorimagenes.com/pintura_camilo",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "painter_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "dimension_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url_base}}/api/cuadros/101",
+									"host": [
+										"{{url_base}}"
+									],
+									"path": [
+										"api",
+										"cuadros",
+										"101"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:7702"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:32:32 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Dec 2022 11:32:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Picture updated successfully\",\n    \"data\": {\n        \"id\": 101,\n        \"created_at\": \"2022-12-27T11:31:26.000000Z\",\n        \"updated_at\": \"2022-12-27T11:32:32.000000Z\",\n        \"name\": \"Pintura 2\",\n        \"painter\": \"Camilo mi\",\n        \"description\": \"Pintura de un paisaje muy bonito\",\n        \"image\": \"http://www.servidorimagenes.com/pintura_camilo\",\n        \"country_code\": \"ARG\",\n        \"category_id\": \"1\",\n        \"painter_id\": \"1\",\n        \"dimension_id\": \"1\",\n        \"country_id\": 1\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "Pictures"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"",
+					"// pm.sendRequest({",
+					"//     url: pm.environment.get(\"url_base\")+'/sanctum/csrf-cookie',",
+					"//     method: 'GET'",
+					"// }, function (error, response, { cookies }) {",
+					"//     if (!error) {",
+					"//         pm.environment.set('xsrf-token', cookies.get('XSRF-TOKEN'))",
+					"//     }",
+					"// })",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
