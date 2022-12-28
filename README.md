@@ -32,4 +32,4 @@ API RESTful for paint management
 3. - acceder a la subcarpeta del contenedor api  via "cd ./api/v1/ 
 4. - escribir comando "composer install" y responder yes en la pregunta
 5. - regresar a la carpeta princiapl del proyecto escribiendo cd .. dos veces 
-6. - repetir los pasos de intaslacion de sde el paso 2
+6. - repetir los pasos de intaslacion desde el paso 2
