@@ -1,5 +1,5 @@
-version: '3.3'
-name: cuadros
+# version: '3.3'
+# name: cuadros
 services:
   # db 
   cuadros-mariadb:
