@@ -12,7 +12,7 @@ services:
       - MARIADB_USER=cuadros
       - MARIADB_DATABASE=cuadros
     volumes:
-      - './data:/bitnami/mariadb/data'
+      - 'mysqlData:/bitnami/mariadb/data'
     ports:
       - '7701:3306'
   # API 
@@ -49,3 +49,7 @@ services:
   #     - '7700:3000'
   #   depends_on:
   #     - cuadros-api
+ # Volumes
+volumes:
+  mysqlData:
+    driver: local
