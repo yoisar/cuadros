@@ -18,7 +18,7 @@ API RESTful for paint management
 ## Server 
 - MariaDB 10.6.11
 - Laravel Framework 9.45.1
-- PHP 8.1.12 (cli) (built: Oct 27 2022 13:50:40) (NTS)
+- PHP 8.1.12
 
 ## Recursos
 - Postman Collections dentro de la carpeta postman. Importela en su postman
@@ -30,6 +30,7 @@ API RESTful for paint management
 1. - abrir terminal
 2. - ir a la carpeta princiapl del proyecto.
 3. - acceder a la subcarpeta del contenedor api  via "cd ./api/v1/ 
-4. - escribir comando "composer install" y responder yes en la pregunta
-5. - regresar a la carpeta princiapl del proyecto escribiendo cd .. dos veces 
-6. - repetir los pasos de instalación desde el paso 2
+4. - ejecutar comando rm composer.lock
+5. - escribir comando "composer install" y responder yes en la pregunta
+6. - regresar a la carpeta princiapl del proyecto escribiendo cd .. dos veces 
+7. - repetir los pasos de instalación desde el paso 2
