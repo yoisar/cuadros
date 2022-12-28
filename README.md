@@ -26,10 +26,10 @@ API RESTful for paint management
 - Actualmente se ecuentra disponible en http://yoisar.com:7702/api/
 
 
-## Fix errores instalacion composer  en el contender cuadros_api
+## Fix errores instalación composer  en el contender cuadros_api
 1. - abrir terminal
 2. - ir a la carpeta princiapl del proyecto.
 3. - acceder a la subcarpeta del contenedor api  via "cd ./api/v1/ 
 4. - escribir comando "composer install" y responder yes en la pregunta
 5. - regresar a la carpeta princiapl del proyecto escribiendo cd .. dos veces 
-6. - repetir los pasos de intaslacion desde el paso 2
+6. - repetir los pasos de instalación desde el paso 2
